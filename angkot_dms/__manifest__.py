@@ -3,6 +3,7 @@
 {
     'name': 'Angkot LOLO Depot Management',
     # Bump version to ensure updated security data is loaded without deprecated fields.
+    'version': '1.0.3',
     'version': '1.0.2',
     'version': '1.0.0',
     'author': 'Angkot',
