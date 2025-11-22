@@ -2,6 +2,9 @@
 <odoo>
     <record id="group_gate_clerk" model="res.groups">
         <field name="name">Gate Clerk</field>
+    </record>
+    <record id="group_depot_manager" model="res.groups">
+        <field name="name">Depot Manager</field>
         <field name="category_id" ref="base.module_category_hidden"/>
     </record>
     <record id="group_depot_manager" model="res.groups">
