@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="seq_gate_transaction" model="ir.sequence">
+        <field name="name">Gate Transaction</field>
+        <field name="code">angkot.gate.transaction</field>
+        <field name="prefix">GT%(y)s</field>
+        <field name="padding">5</field>
+    </record>
+</odoo>
