@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<odoo>
+    <menuitem id="menu_angkot_root" name="Angkot LOLO" sequence="10"/>
+
+    <menuitem id="menu_angkot_operations" name="Operations" parent="menu_angkot_root" sequence="10"/>
+    <menuitem id="menu_angkot_gate_transactions" name="Gate Transactions" parent="menu_angkot_operations" action="action_gate_transaction" sequence="10"/>
+    <menuitem id="menu_angkot_containers" name="Containers" parent="menu_angkot_operations" action="action_container" sequence="20"/>
+
+    <menuitem id="menu_angkot_config" name="Configuration" parent="menu_angkot_root" sequence="20"/>
+    <menuitem id="menu_angkot_yard_locations" name="Yard Locations" parent="menu_angkot_config" action="action_yard_location" sequence="10"/>
+
+    <record id="action_container" model="ir.actions.act_window">
+        <field name="name">Containers</field>
+        <field name="res_model">angkot.container</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_yard_location" model="ir.actions.act_window">
+        <field name="name">Yard Locations</field>
+        <field name="res_model">angkot.yard.location</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_gate_transaction" model="ir.actions.act_window">
+        <field name="name">Gate Transactions</field>
+        <field name="res_model">angkot.gate.transaction</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_gate_transaction_search"/>
+    </record>
+</odoo>

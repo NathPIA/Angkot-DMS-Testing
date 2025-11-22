@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_gate_transaction_tree" model="ir.ui.view">
+        <field name="name">angkot.gate.transaction.tree</field>
+        <field name="model">angkot.gate.transaction</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="container_id"/>
+                <field name="service_type"/>
+                <field name="state"/>
+                <field name="partner_id"/>
+                <field name="yard_location_id"/>
+                <field name="gate_in_datetime"/>
+                <field name="gate_out_datetime"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_gate_transaction_form" model="ir.ui.view">
+        <field name="name">angkot.gate.transaction.form</field>
+        <field name="model">angkot.gate.transaction</field>
+        <field name="arch" type="xml">
+            <form string="Gate Transaction">
+                <header>
+                    <button name="action_confirm_gate_in" type="object" string="Confirm Gate In" states="in_progress" class="btn-primary"/>
+                    <button name="action_create_invoice" type="object" string="Create Invoice" states="gated_in,in_progress" class="btn-secondary"/>
+                    <button name="action_gate_out" type="object" string="Gate Out" states="gated_in,invoiced" class="btn-primary"/>
+                    <button name="action_reset_to_draft" type="object" string="Reset" states="gated_in,invoiced"/>
+                    <field name="state" widget="statusbar" statusbar_visible="in_progress,gated_in,invoiced,gate_out"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name" readonly="1"/>
+                        <field name="container_id"/>
+                        <field name="service_type"/>
+                        <field name="partner_id"/>
+                        <field name="shipping_line_id"/>
+                        <field name="booking_no"/>
+                        <field name="seal_no"/>
+                        <field name="yard_location_id"/>
+                    </group>
+                    <group>
+                        <field name="truck_plate"/>
+                        <field name="driver_name"/>
+                        <field name="driver_phone"/>
+                        <field name="gate_in_datetime"/>
+                        <field name="gate_out_datetime"/>
+                        <field name="invoice_id" readonly="1"/>
+                        <field name="service_fee"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_gate_transaction_search" model="ir.ui.view">
+        <field name="name">angkot.gate.transaction.search</field>
+        <field name="model">angkot.gate.transaction</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="container_id"/>
+                <field name="service_type"/>
+                <field name="state"/>
+                <field name="partner_id"/>
+                <filter name="gate_open" string="Open" domain="[('state','!=','gate_out')]"/>
+                <filter name="gate_out" string="Closed" domain="[('state','=','gate_out')]"/>
+            </search>
+        </field>
+    </record>
+</odoo>
