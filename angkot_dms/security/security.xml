@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Security groups kept minimal to avoid deprecated fields like category_id on newer Odoo versions. -->
+    <record id="group_gate_clerk" model="res.groups">
+        <field name="name">Gate Clerk</field>
+    </record>
+    <record id="group_depot_manager" model="res.groups">
+        <field name="name">Depot Manager</field>
+        <field name="implied_ids" eval="[(4, ref('group_gate_clerk'))]"/>
+    </record>
+</odoo>

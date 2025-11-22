@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_container_user,access_container_user,model_angkot_container,group_gate_clerk,1,1,1,0
+access_yard_location_user,access_yard_location_user,model_angkot_yard_location,group_gate_clerk,1,1,1,0
+access_gate_transaction_user,access_gate_transaction_user,model_angkot_gate_transaction,group_gate_clerk,1,1,1,0
+access_container_manager,access_container_manager,model_angkot_container,group_depot_manager,1,1,1,1
+access_yard_location_manager,access_yard_location_manager,model_angkot_yard_location,group_depot_manager,1,1,1,1
+access_gate_transaction_manager,access_gate_transaction_manager,model_angkot_gate_transaction,group_depot_manager,1,1,1,1
